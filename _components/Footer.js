@@ -16,7 +16,7 @@ export default function Footer() {
           <div className='flex items-center justify-center'>
             <input
               type='email'
-              className='h-11 m-0 mr-3 w-2/5 px-4'
+              className='h-12 m-0 mr-3 w-2/5 px-4'
               placeholder='Email'
             />
             <Button text={'Sign up'} variant={1} />

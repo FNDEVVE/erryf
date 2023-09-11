@@ -12,6 +12,7 @@ import FeaturedPodcasts from '@/_components/FeaturedPodcasts';
 import FeaturedAuthors from '@/_components/FeaturedAuthors';
 import Button from '@/_components/Button';
 import MostPopularArticles from '@/_components/MostPopularArticles';
+import NewsletterWidget from '@/_components/NewsletterWidget';
 
 export default async function Home() {
   return (
@@ -71,6 +72,7 @@ export default async function Home() {
           <Button variant={0} text={'Buy'} />
           <h6 className='font-semibold mt-16 uppercase'>Most popular</h6>
           <MostPopularArticles articles={await getPosts()} />
+          <NewsletterWidget />
         </div>
       </div>
       <FeaturedPodcasts podcasts={await getPodcasts()} />

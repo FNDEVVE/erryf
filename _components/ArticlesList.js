@@ -1,6 +1,8 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { getMonthName } from './util';
 import ButtonText from './ButtonText';
+import RoundedButton from './RoundedButton';
 
 export default function ArticlesList({ articles }) {
   delete articles.data[0];
@@ -28,28 +30,37 @@ export default function ArticlesList({ articles }) {
               </h3>
               <p className='leading-[28.8px]'>{post.attributes.excerpt}</p>
             </div>
-            <div className='flex gap-6 text-[14px]'>
-              <p>
-                <span className='font-semibold'>Text </span>
-                {
-                  post.attributes.users_permissions_user.data.attributes
-                    .firstname
-                }{' '}
-                {
-                  post.attributes.users_permissions_user.data.attributes
-                    .lastname
-                }
-              </p>
-              <p>
-                <span className='font-semibold'>Date </span>
-                {`${D.getDate()}. ${getMonthName(
-                  D.getMonth()
-                )} ${D.getFullYear()}`}
-              </p>
-              <p>
-                <span className='font-semibold'>Duration </span>
-                {post.attributes.content.length} characters
-              </p>
+            <div className='flex justify-between'>
+              <div className='flex gap-6 text-[14px]'>
+                <p>
+                  <span className='font-semibold'>Text </span>
+                  <Link
+                    href={`/authors/${post.attributes.users_permissions_user.data.attributes.username}`}
+                  >
+                    <span className='underline'>
+                      {
+                        post.attributes.users_permissions_user.data.attributes
+                          .firstname
+                      }{' '}
+                      {
+                        post.attributes.users_permissions_user.data.attributes
+                          .lastname
+                      }
+                    </span>
+                  </Link>
+                </p>
+                <p>
+                  <span className='font-semibold'>Date </span>
+                  {`${D.getDate()}. ${getMonthName(
+                    D.getMonth()
+                  )} ${D.getFullYear()}`}
+                </p>
+                <p>
+                  <span className='font-semibold'>Duration </span>
+                  {post.attributes.content.length} characters
+                </p>
+              </div>
+              <RoundedButton text={post.attributes.tag} />
             </div>
           </div>
         </div>

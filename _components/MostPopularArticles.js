@@ -1,3 +1,4 @@
+import Link from 'next/link';
 export default function MostPopularArticles({ articles }) {
   articles = articles.data.slice(0, 3);
   console.log(articles);
@@ -18,14 +19,20 @@ export default function MostPopularArticles({ articles }) {
               </h5>
               <p className='text-sm mt-4'>
                 <span className='font-semibold'>Text </span>
-                {
-                  article.attributes.users_permissions_user.data.attributes
-                    .firstname
-                }{' '}
-                {
-                  article.attributes.users_permissions_user.data.attributes
-                    .lastname
-                }
+                <Link
+                  href={`/authors/${article.attributes.users_permissions_user.data.attributes.username}`}
+                >
+                  <span className='underline'>
+                    {
+                      article.attributes.users_permissions_user.data.attributes
+                        .firstname
+                    }{' '}
+                    {
+                      article.attributes.users_permissions_user.data.attributes
+                        .lastname
+                    }
+                  </span>
+                </Link>
               </p>
             </div>
           </div>

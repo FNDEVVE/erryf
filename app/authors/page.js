@@ -1,6 +1,8 @@
+import { getAuthors } from '@/_components/util';
+import AllAuthors from '@/_components/AllAuthors';
 import Image from 'next/image';
 
-export default function Podcast() {
+export default async function Authors() {
   return (
     <>
       <div className='relative w-full aspect-[6.576]'>
@@ -12,6 +14,7 @@ export default function Podcast() {
           className='object-cover'
         />
       </div>
+      <AllAuthors authors={await getAuthors()} />
     </>
   );
 }

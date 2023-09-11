@@ -40,7 +40,11 @@
     "url": {
       "type": "string",
       "unique": true,
-      "required": false
+      "required": true
+    },
+    "tag": {
+      "type": "string",
+      "required": true
     }
   }
 }

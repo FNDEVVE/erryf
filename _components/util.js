@@ -68,3 +68,31 @@ export async function getPodcasts() {
   const data = await response.json();
   return data;
 }
+
+export async function getAuthor({ username }) {
+  const response = await fetch(
+    `http://127.0.0.1:1337/api/users?filters[username][$eq]=${username}&populate=*`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+  const data = await response.json();
+  return data;
+}
+
+export async function getArticlesOf({ username }) {
+  const response = await fetch(
+    `http://127.0.0.1:1337/api/articles?filters[users_permissions_user][username][$eq]=${username}&populate=*`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+  const data = await response.json();
+  return data;
+}
