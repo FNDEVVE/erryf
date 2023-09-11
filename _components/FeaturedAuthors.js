@@ -24,8 +24,8 @@ export default function FeaturedAuthors({ authors }) {
               <div className='w-40 h-40'>
                 <div className='relative w-full h-full'>
                   <Image
-                    src={`/i/${author.name.split(' ')[0].toLowerCase()}.jpeg`}
-                    alt={author.name}
+                    src={`http://127.0.0.1:1337${author.avatar.formats.small.url}`}
+                    alt={`${author.firstname} ${author.lastname}`}
                     fill
                     sizes='10vw'
                     className='object-cover rounded-full grayscale'
@@ -34,7 +34,7 @@ export default function FeaturedAuthors({ authors }) {
               </div>
               <div className='ml-12'>
                 <h5 className='font-semibold text-[32px] mb-4'>
-                  {author.name}
+                  {author.firstname} {author.lastname}
                 </h5>
                 <div className='flex gap-6 text-[14px]'>
                   <p>

@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "author": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "admin::user"
-    },
     "title": {
       "type": "string"
     },
@@ -36,6 +31,16 @@
         "videos",
         "audios"
       ]
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "url": {
+      "type": "string",
+      "unique": true,
+      "required": false
     }
   }
 }
