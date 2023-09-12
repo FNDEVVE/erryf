@@ -14,9 +14,11 @@ export default function MostPopularArticles({ articles }) {
               {String(i + 1).padStart(2, '0')}
             </h5>
             <div>
-              <h5 className='font-semibold text-2xl'>
-                {article.attributes.title}
-              </h5>
+              <Link href={`/post/${article.attributes.url}`}>
+                <h5 className='font-semibold text-2xl'>
+                  {article.attributes.title}
+                </h5>
+              </Link>
               <p className='text-sm mt-4'>
                 <span className='font-semibold'>Text </span>
                 <Link

@@ -2,11 +2,15 @@ import Image from 'next/image';
 import ButtonText from './ButtonText';
 import Link from 'next/link';
 
-export default function AllAuthors({ authors }) {
+export default function AllAuthors({ authors, posts }) {
   return (
-    <div>
+    <>
       {authors.map((author, i) => {
-        console.log(author);
+        let authorPosts = posts.data.filter(
+          (post) =>
+            post.attributes.users_permissions_user.data.attributes.username ==
+            author.username
+        );
         return (
           <div
             key={i}
@@ -37,6 +41,10 @@ export default function AllAuthors({ authors }) {
                 <span className='font-semibold'>City </span>
                 {author.city}
               </p>
+              <p>
+                <span className='font-semibold'>Articles </span>
+                {authorPosts.length}
+              </p>
               <Link href={`/authors/${author.username}`}>
                 <ButtonText
                   text='About'
@@ -48,6 +56,6 @@ export default function AllAuthors({ authors }) {
           </div>
         );
       })}
-    </div>
+    </>
   );
 }

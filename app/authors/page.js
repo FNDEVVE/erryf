@@ -1,4 +1,4 @@
-import { getAuthors } from '@/_components/util';
+import { getAuthors, getPosts } from '@/_components/util';
 import AllAuthors from '@/_components/AllAuthors';
 import Image from 'next/image';
 
@@ -14,7 +14,7 @@ export default async function Authors() {
           className='object-cover'
         />
       </div>
-      <AllAuthors authors={await getAuthors()} />
+      <AllAuthors authors={await getAuthors()} posts={await getPosts()} />
     </>
   );
 }

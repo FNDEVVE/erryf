@@ -4,7 +4,7 @@ export default function ButtonText({ text, image, imageSide }) {
   return (
     <button
       type='button'
-      className='items-center font-semibold flex gap-2 uppercase'
+      className='items-center font-semibold flex gap-2 uppercase cursor-pointer'
     >
       {imageSide == 'right' ? text : ''}
       <div className='relative w-6 h-6'>

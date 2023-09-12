@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Nav() {
   return (
-    <div className='flex justify-between pb-4 border-b border-black mb-12'>
+    <div className='flex justify-between pb-4 border-b border-black mb-6'>
       <Link href={'/'}>
         <h1 className='text-black uppercase text-2xl font-semibold'>
           Erryf Magazine

@@ -9,11 +9,13 @@ export default function FeaturedAuthors({ authors }) {
         <h1 className='font-semibold leading-[114.4px] text-[104px] uppercase'>
           Authors
         </h1>
-        <ButtonText
-          text='All authors'
-          image='arrow-right-line'
-          imageSide='right'
-        />
+        <Link href={`/authors`}>
+          <ButtonText
+            text='All authors'
+            image='arrow-right-line'
+            imageSide='right'
+          />
+        </Link>
       </div>
       <div className='grid grid-cols-2 border border-b-0 border-black'>
         {authors.map((author, i) => {

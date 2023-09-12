@@ -1,7 +1,7 @@
 import RoundedButton from './RoundedButton';
 
-export default function CategoriesButtons({ articles }) {
-  let categories = ['All'];
+export default async function CategoriesButtons({ articles }) {
+  let categories = ['all'];
   articles.data.map((art) => {
     categories.push(art.attributes.tag);
   });
@@ -9,7 +9,13 @@ export default function CategoriesButtons({ articles }) {
   return (
     <>
       {categories.map((cat, i) => {
-        return <RoundedButton key={i} text={cat} />;
+        return (
+          <RoundedButton
+            key={i}
+            text={cat}
+            active={cat == 'all' ? true : false}
+          />
+        );
       })}
     </>
   );

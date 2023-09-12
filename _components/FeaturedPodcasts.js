@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { getMonthName } from './util';
 import ButtonText from './ButtonText';
+import Link from 'next/link';
 
 export default function FeaturedPodcasts({ podcasts }) {
   return (
@@ -9,11 +10,13 @@ export default function FeaturedPodcasts({ podcasts }) {
         <h1 className='font-semibold leading-[114.4px] text-[104px] uppercase'>
           Podcast
         </h1>
-        <ButtonText
-          text='All episodes'
-          image='arrow-right-line'
-          imageSide='right'
-        />
+        <Link href={`/podcast`}>
+          <ButtonText
+            text='All episodes'
+            image='arrow-right-line'
+            imageSide='right'
+          />
+        </Link>
       </div>
       <div className='grid grid-cols-3 border border-black'>
         {podcasts.data.map((podcast, i) => {

@@ -8,9 +8,11 @@ export default function FeaturedPost({ post }) {
   return (
     <>
       <div className='grid grid-cols-2 gap-12 mb-12'>
-        <h1 className='font-semibold leading-[105.6px] text-[96px] uppercase'>
-          {post.data.attributes.title}
-        </h1>
+        <Link href={`/post/${post.data.attributes.url}`}>
+          <h1 className='font-semibold leading-[105.6px] text-[96px] uppercase'>
+            {post.data.attributes.title}
+          </h1>
+        </Link>
         <div>
           <p className='font-normal text-lg leading-[32.4px] mb-16'>
             {post.data.attributes.excerpt}
@@ -49,15 +51,17 @@ export default function FeaturedPost({ post }) {
           </div>
         </div>
       </div>
-      <div className='relative w-full aspect-[1.5] mb-12'>
-        <Image
-          src={`http://127.0.0.1:1337${post.data.attributes.featuredimage.data.attributes.url}`}
-          alt={post.data.attributes.title}
-          fill
-          sizes='100vw'
-          className='object-cover'
-        />
-      </div>
+      <Link href={`/post/${post.data.attributes.url}`}>
+        <div className='relative w-full aspect-[1.5] mb-12'>
+          <Image
+            src={`http://127.0.0.1:1337${post.data.attributes.featuredimage.data.attributes.url}`}
+            alt={post.data.attributes.title}
+            fill
+            sizes='100vw'
+            className='object-cover'
+          />
+        </div>
+      </Link>
     </>
   );
 }

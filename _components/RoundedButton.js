@@ -1,10 +1,14 @@
-export default function RoundedButton({ text }) {
+'use client';
+
+export default function RoundedButton({ text, active = false }) {
   return (
     <button
       type='button'
-      className='p-2 rounded-full border border-black text-xs uppercase'
+      className={`${
+        active ? 'clicked' : ''
+      } p-2 rounded-full border border-black text-xs uppercase cursor-pointer hover:bg-black hover:text-white`}
     >
-      {text != 'All' ? `#${text}` : 'All'}
+      {text != 'all' ? `#${text}` : 'all'}
     </button>
   );
 }
