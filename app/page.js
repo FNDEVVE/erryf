@@ -37,7 +37,7 @@ export default async function Home() {
         </div>
         <div>
           <h6 className='font-semibold uppercase mb-2'>Printmagazine</h6>
-          <h5 className='text-5xl font-semibold mb-8'>03/2022</h5>
+          <h5 className='text-5xl font-semibold mb-8'>09/2023</h5>
           <div className='w-full aspect-[0.8] mb-4'>
             <div className='relative w-full h-full'>
               <Image
@@ -49,10 +49,10 @@ export default async function Home() {
               />
               <div className='absolute top-0 left-0 w-full h-full pt-8 pb-6 pl-9 pr-5 z-20'>
                 <div className='relative w-full h-full text-white'>
-                  <h5 className='text-8xl font-semibold uppercase'>Fyrre</h5>
+                  <h5 className='text-8xl font-semibold uppercase'>Erryf</h5>
                   <h6 className='text-2xl font-semibold uppercase'>Magazin</h6>
                   <h6 className='text-2xl bottom-0 absolute font-semibold uppercase'>
-                    03/2022
+                    09/2023
                   </h6>
                   <div className='absolute bottom-0 right-0'>
                     <div className='relative w-20 h-20 -mr-4 -mb-4'>

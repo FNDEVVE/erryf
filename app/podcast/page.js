@@ -1,6 +1,7 @@
 import Image from 'next/image';
-
-export default function Podcast() {
+import AllPodcasts from '@/_components/AllPodcasts';
+import { getAuthors, getPodcasts, getPosts } from '@/_components/util';
+export default async function Podcast() {
   return (
     <>
       <div className='relative w-full aspect-[6.443]'>
@@ -12,6 +13,7 @@ export default function Podcast() {
           className='object-cover'
         />
       </div>
+      <AllPodcasts podcasts={await getPodcasts()} />
     </>
   );
 }

@@ -1,19 +1,18 @@
 import Link from 'next/link';
 export default function MostPopularArticles({ articles }) {
   articles = articles.data.slice(0, 3);
-  console.log(articles);
   return (
     <div className='mt-2'>
       {articles.map((article, i) => {
         return (
           <div
             key={i}
-            className='flex py-6 border-b last:border-b-0 border-black'
+            className='grid grid-cols-9 py-6 border-b gap-4 last:border-b-0 border-black'
           >
-            <h5 className='font-semibold text-2xl w-12 mr-4'>
+            <h5 className='font-semibold text-2xl'>
               {String(i + 1).padStart(2, '0')}
             </h5>
-            <div>
+            <div className='col-span-8'>
               <Link href={`/post/${article.attributes.url}`}>
                 <h5 className='font-semibold text-2xl'>
                   {article.attributes.title}

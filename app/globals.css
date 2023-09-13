@@ -6,3 +6,8 @@
     @apply bg-black;
     @apply text-white;
 }
+
+.BIGTEXT {
+    @apply leading-[114.4px];
+    @apply text-6xl;
+}

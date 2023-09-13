@@ -6,11 +6,11 @@ const components = {
       {props.children}
     </strong>
   ),
-  p: (props) => <p className='leading-relaxed mb-6'>{props.children}</p>,
+  p: (props) => <p className='leading-relaxed mb-4'>{props.children}</p>,
   blockquote: (props) => (
-    <blockquote className='py-12 my-6 border-y border-black text-5xl font-semibold'>
+    <blockquote className='pt-4 my-4 border-y border-black text-3xl font-semibold'>
       <div className='flex'>
-        <h4 className='text-8xl font-semibold mr-6'>“</h4>
+        <h4 className='text-3xl font-semibold mr-6'>“</h4>
         {props.children}
       </div>
     </blockquote>

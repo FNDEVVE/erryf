@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getMonthName } from './util';
 import RoundedButton from './RoundedButton';
+import Characters from './Characters';
 
 export default function ArticlesGrid({
   articles,
@@ -31,7 +32,10 @@ export default function ArticlesGrid({
               <div className='aspect-square my-8'>
                 <div className='relative w-full h-full'>
                   <Image
-                    src={`http://127.0.0.1:1337${post.attributes.featuredimage.data.attributes.formats.small.url}`}
+                    src={
+                      post.attributes.featuredimage.data.attributes.formats
+                        .small.url
+                    }
                     alt={post.attributes.title}
                     fill
                     sizes='25vw'
@@ -43,30 +47,30 @@ export default function ArticlesGrid({
                 {post.attributes.title}
               </h3>
               <p className='leading-[28.8px] mb-8'>{post.attributes.excerpt}</p>
-              <div className='flex gap-6 text-[14px]'>
-                <p>
-                  <span className='font-semibold'>Text </span>
-                  <Link
-                    href={`/authors/${post.attributes.users_permissions_user.data.attributes.username}`}
-                  >
-                    <span className='underline'>
-                      {
-                        post.attributes.users_permissions_user.data.attributes
-                          .firstname
-                      }{' '}
-                      {
-                        post.attributes.users_permissions_user.data.attributes
-                          .lastname
-                      }
-                    </span>
-                  </Link>
-                </p>
-                <p>
-                  <span className='font-semibold'>Duration </span>
-                  {post.attributes.content.length} characters
-                </p>
-              </div>
-            </Link>{' '}
+            </Link>
+            <div className='flex gap-6 text-[14px]'>
+              <p>
+                <span className='font-semibold'>Text </span>
+                <Link
+                  href={`/authors/${post.attributes.users_permissions_user.data.attributes.username}`}
+                >
+                  <span className='underline'>
+                    {
+                      post.attributes.users_permissions_user.data.attributes
+                        .firstname
+                    }{' '}
+                    {
+                      post.attributes.users_permissions_user.data.attributes
+                        .lastname
+                    }
+                  </span>
+                </Link>
+              </p>
+              <p>
+                <span className='font-semibold'>Duration </span>
+                <Characters c={post.attributes.content.length} />
+              </p>
+            </div>
           </div>
         );
       })}

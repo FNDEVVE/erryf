@@ -6,9 +6,7 @@ export default function FeaturedAuthors({ authors }) {
   return (
     <>
       <div className='mt-48 mb-24 pt-12 border-t border-black flex items-center justify-between'>
-        <h1 className='font-semibold leading-[114.4px] text-[104px] uppercase'>
-          Authors
-        </h1>
+        <h1 className='font-semibold BIGTEXT uppercase'>Authors</h1>
         <Link href={`/authors`}>
           <ButtonText
             text='All authors'
@@ -25,7 +23,7 @@ export default function FeaturedAuthors({ authors }) {
                 <div className='w-40 h-40'>
                   <div className='relative w-full h-full'>
                     <Image
-                      src={`http://127.0.0.1:1337${author.avatar.formats.small.url}`}
+                      src={author.avatar.formats.small.url}
                       alt={`${author.firstname} ${author.lastname}`}
                       fill
                       sizes='10vw'

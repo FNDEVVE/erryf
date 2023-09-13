@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getMonthName } from './util';
+import Characters from './Characters';
 
 export default function AuthorArticles({ articles }) {
   return articles.data.map((post, i) => {
@@ -19,7 +20,10 @@ export default function AuthorArticles({ articles }) {
             <div className='absolute w-36 h-36'>
               <div className='relative w-full h-full'>
                 <Image
-                  src={`http://127.0.0.1:1337${post.attributes.featuredimage.data.attributes.formats.small.url}`}
+                  src={
+                    post.attributes.featuredimage.data.attributes.formats.small
+                      .url
+                  }
                   alt={post.attributes.title}
                   fill
                   sizes='25vw'
@@ -41,7 +45,7 @@ export default function AuthorArticles({ articles }) {
                   </p>
                   <p>
                     <span className='font-semibold'>Duration </span>
-                    {post.attributes.content.length} characters
+                    <Characters c={post.attributes.content.length} />
                   </p>
                 </div>
               </div>
