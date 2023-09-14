@@ -8,7 +8,6 @@ export default function ArticlesGrid({
   articles,
   tag = 'all',
   useData = true,
-  xD,
 }) {
   let target = useData ? articles.data : articles;
   target =
@@ -24,7 +23,6 @@ export default function ArticlesGrid({
                 {`${D.getDate()}. ${getMonthName(
                   D.getMonth()
                 )} ${D.getFullYear()}`}
-                {xD}
               </p>
               <RoundedButton text={post.attributes.tag} />
             </div>

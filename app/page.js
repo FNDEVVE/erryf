@@ -42,7 +42,7 @@ export default async function Home() {
             <div className='relative w-full h-full'>
               <Image
                 src='/i/magazin.png'
-                alt='xD'
+                alt='Magazin'
                 fill
                 sizes='25vw'
                 className='object-cover z-10'
@@ -58,7 +58,7 @@ export default async function Home() {
                     <div className='relative w-20 h-20 -mr-4 -mb-4'>
                       <Image
                         src='/i/arrow-right-down-line.svg'
-                        alt='xD'
+                        alt='Arrow Right Down Line'
                         fill
                         sizes='80px'
                         className='object-cover'

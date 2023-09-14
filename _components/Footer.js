@@ -31,7 +31,8 @@ export default function Footer() {
           </div>
           <div className='col-span-2'>
             <div className='grid grid-cols-3 gap-16'>
-              <div className='mt-4'>
+              <div className='mt-4'></div>
+              {/* <div className='mt-4'>
                 <Link href={'/art'} className='text-white mb-3 block'>
                   Art
                 </Link>
@@ -41,7 +42,7 @@ export default function Footer() {
                 <Link href={'/architecture'} className='text-white mb-3 block'>
                   Architecture
                 </Link>
-              </div>
+              </div> */}
               <div className='mt-4'>
                 <Link href={'/magazine'} className='text-white mb-3 block'>
                   Magazine

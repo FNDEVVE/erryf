@@ -1,10 +1,15 @@
+'use client';
+
 import Image from 'next/image';
 
-export default function ButtonText({ text, image, imageSide }) {
+export default function ButtonText({ text, image, imageSide, GB = false }) {
   return (
     <button
       type='button'
       className='items-center font-semibold flex gap-2 uppercase cursor-pointer'
+      onClick={() => {
+        GB ? history.back() : console.log('');
+      }}
     >
       {imageSide == 'right' ? text : ''}
       <div className='relative w-6 h-6'>

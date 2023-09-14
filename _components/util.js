@@ -100,6 +100,20 @@ export async function getPost({ url }) {
   return data;
 }
 
+export async function getPodcast({ url }) {
+  const response = await fetch(
+    `https://strapi-production-c322.up.railway.app/api/podcasts?filters[url][$eq]=${url}&populate=*`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+  const data = await response.json();
+  return data;
+}
+
 export async function getArticlesOf({ username }) {
   const response = await fetch(
     `https://strapi-production-c322.up.railway.app/api/articles?filters[users_permissions_user][username][$eq]=${username}&populate=*`,

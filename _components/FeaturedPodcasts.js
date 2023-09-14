@@ -4,6 +4,7 @@ import ButtonText from './ButtonText';
 import Link from 'next/link';
 
 export default function FeaturedPodcasts({ podcasts }) {
+  podcasts.data.splice(3);
   return (
     <>
       <div className='my-24 pt-12 border-t border-black flex items-center justify-between'>
@@ -67,9 +68,9 @@ export default function FeaturedPodcasts({ podcasts }) {
                 <h3 className='text-[32px] font-semibold leading-[38.4px] mt-6 mb-4'>
                   {podcast.attributes.title}
                 </h3>
-                <p className='text-sm line-clamp-4 mb-4'>
+                {/* <p className='text-sm line-clamp-4 mb-4'>
                   {podcast.attributes.content}
-                </p>
+                </p> */}
                 <div className='flex gap-6 text-[14px]'>
                   <p>
                     <span className='font-semibold'>Date </span>
