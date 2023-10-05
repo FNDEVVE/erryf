@@ -7,16 +7,16 @@ import Characters from './Characters';
 export default function PodcastsGrid({ podcasts, useData = true }) {
   let target = useData ? podcasts.data : podcasts;
   return (
-    <div className='grid grid-cols-3 border border-r-0 border-b-0 border-black'>
+    <div className='grid grid-cols-2 lg:grid-cols-3 border border-r-0 border-b-0 border-black'>
       {target.map((podcast, i) => {
         let D = new Date(podcast.attributes.updatedAt);
         let durationHours = Math.floor(podcast.attributes.duration / 60);
         let durationMinutesLeft =
           podcast.attributes.duration - durationHours * 60;
         return (
-          <div key={i} className='p-12 border-r border-b border-black'>
+          <div key={i} className='p-8 lg:p-12 border-r border-b border-black'>
             <Link href={`/podcast/${podcast.attributes.url}`}>
-              <div className='aspect-square my-8'>
+              <div className='aspect-square mb-8 lg:my-8'>
                 <div className='relative w-full h-full'>
                   <Image
                     src={

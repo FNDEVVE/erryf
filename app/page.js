@@ -17,7 +17,7 @@ import NewsletterWidget from '@/_components/NewsletterWidget';
 export default async function Home() {
   return (
     <>
-      <div className='relative w-full aspect-[7.037]'>
+      <div className='relative aspect-[7.037] w-full'>
         <Image
           src='/i/art-and-life.svg'
           alt='Art & Life'
@@ -31,31 +31,31 @@ export default async function Home() {
         text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit +++'}
       />
       <FeaturedPost post={await getFeaturedPost()} />
-      <div className='grid grid-cols-3 gap-24'>
-        <div className='col-span-2'>
+      <div className='grid gap-16 lg:grid-cols-3 lg:gap-24'>
+        <div className='lg:col-span-2'>
           <ArticlesList articles={await getPosts()} />
         </div>
-        <div>
-          <h6 className='font-semibold uppercase mb-2'>Printmagazine</h6>
-          <h5 className='text-5xl font-semibold mb-8'>09/2023</h5>
-          <div className='w-full aspect-[0.8] mb-4'>
-            <div className='relative w-full h-full'>
+        <div className='hidden lg:block'>
+          <h6 className='mb-2 font-semibold uppercase'>Printmagazine</h6>
+          <h5 className='mb-8 text-5xl font-semibold'>09/2023</h5>
+          <div className='mb-4 aspect-[0.8] w-full'>
+            <div className='relative h-full w-full'>
               <Image
                 src='/i/magazin.png'
                 alt='Magazin'
                 fill
                 sizes='25vw'
-                className='object-cover z-10'
+                className='z-10 object-cover'
               />
-              <div className='absolute top-0 left-0 w-full h-full pt-8 pb-6 pl-9 pr-5 z-20'>
-                <div className='relative w-full h-full text-white'>
+              <div className='absolute left-0 top-0 z-20 h-full w-full pb-6 pl-9 pr-5 pt-8'>
+                <div className='relative h-full w-full text-white'>
                   <h5 className='text-8xl font-semibold uppercase'>Erryf</h5>
                   <h6 className='text-2xl font-semibold uppercase'>Magazin</h6>
-                  <h6 className='text-2xl bottom-0 absolute font-semibold uppercase'>
+                  <h6 className='absolute bottom-0 text-2xl font-semibold uppercase'>
                     09/2023
                   </h6>
                   <div className='absolute bottom-0 right-0'>
-                    <div className='relative w-20 h-20 -mr-4 -mb-4'>
+                    <div className='relative -mb-4 -mr-4 h-20 w-20'>
                       <Image
                         src='/i/arrow-right-down-line.svg'
                         alt='Arrow Right Down Line'
@@ -70,7 +70,7 @@ export default async function Home() {
             </div>
           </div>
           <Button variant={0} text={'Buy'} />
-          <h6 className='font-semibold mt-16 uppercase'>Most popular</h6>
+          <h6 className='mt-16 font-semibold uppercase'>Most popular</h6>
           <MostPopularArticles articles={await getPosts()} />
           <NewsletterWidget />
         </div>

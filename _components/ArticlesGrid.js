@@ -13,13 +13,13 @@ export default function ArticlesGrid({
   target =
     tag != 'all' ? target.filter((t) => t.attributes.tag == tag) : target;
   return (
-    <div className='grid grid-cols-3 border border-r-0 border-b-0 border-black'>
+    <div className='grid grid-cols-2 lg:grid-cols-3 border border-r-0 border-b-0 border-black'>
       {target.map((post, i) => {
         let D = new Date(post.attributes.updatedAt);
         return (
-          <div key={i} className='p-12 border-r border-b border-black'>
-            <div className='flex justify-between'>
-              <p>
+          <div key={i} className='p-8 lg:p-12 border-r border-b border-black'>
+            <div className='flex justify-between items-center'>
+              <p className='text-sm lg:text-base'>
                 {`${D.getDate()}. ${getMonthName(
                   D.getMonth()
                 )} ${D.getFullYear()}`}
@@ -65,7 +65,7 @@ export default function ArticlesGrid({
                 </Link>
               </p>
               <p>
-                <span className='font-semibold'>Duration </span>
+                <span className='font-semibold'>Read </span>
                 <Characters c={post.attributes.content.length} />
               </p>
             </div>

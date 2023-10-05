@@ -13,9 +13,9 @@ export default function ArticlesList({ articles }) {
     let D = new Date(post.attributes.updatedAt);
     return (
       <>
-        <div key={i} className='flex h-60'>
+        <div key={i} className='grid md:flex md:h-60'>
           <Link href={`/post/${post.attributes.url}`}>
-            <div className='absolute w-60 h-60'>
+            <div className='md:absolute w-full aspect-square md:w-60 md:h-60'>
               <div className='relative w-full h-full'>
                 <Image
                   src={
@@ -30,16 +30,18 @@ export default function ArticlesList({ articles }) {
               </div>
             </div>
           </Link>
-          <div className='ml-72 flex flex-col justify-between'>
+          <div className='md:ml-[272px] lg:ml-72 flex flex-col justify-between'>
             <Link href={`/post/${post.attributes.url}`}>
-              <h3 className='text-[32px] font-semibold mb-3'>
+              <h3 className='text-2xl mt-3 md:mt-0 md:text-[32px] font-semibold mb-3'>
                 {post.attributes.title}
               </h3>
-              <p className='leading-[28.8px]'>{post.attributes.excerpt}</p>
+              <p className='leading-[28.8px] line-clamp-4 lg:mb-0 mb-4'>
+                {post.attributes.excerpt}
+              </p>
             </Link>
-            <div className='flex justify-between'>
-              <div className='flex gap-6 text-[14px]'>
-                <p>
+            <div className='md:flex justify-between'>
+              <div className='block md:flex md:gap-6 text-[14px]'>
+                <p className='py-2 md:m-0 md:p-0'>
                   <span className='font-semibold'>Text </span>
                   <Link
                     href={`/authors/${post.attributes.users_permissions_user.data.attributes.username}`}
@@ -56,18 +58,20 @@ export default function ArticlesList({ articles }) {
                     </span>
                   </Link>
                 </p>
-                <p>
+                <p className='py-2 md:m-0 md:p-0'>
                   <span className='font-semibold'>Date </span>
                   {`${D.getDate()}. ${getMonthName(
                     D.getMonth()
                   )} ${D.getFullYear()}`}
                 </p>
-                <p>
-                  <span className='font-semibold'>Duration </span>
+                <p className='hidden lg:block'>
+                  <span className='font-semibold'>Read </span>
                   <Characters c={post.attributes.content.length} />
                 </p>
               </div>
-              <RoundedButton text={post.attributes.tag} />
+              <div className='py-2 md:m-0 md:p-0'>
+                <RoundedButton text={post.attributes.tag} />
+              </div>
             </div>
           </div>
         </div>
@@ -78,7 +82,7 @@ export default function ArticlesList({ articles }) {
             <div className='border-b border-transparent my-12'></div>
             <Link href={'/magazine'}>
               <ButtonText
-                text='All articles'
+                text='See all'
                 image='arrow-right-line'
                 imageSide='right'
               />

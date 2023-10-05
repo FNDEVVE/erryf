@@ -11,7 +11,7 @@ export default function AuthorArticles({ articles }) {
         key={i}
         className={
           articles.data.length > 1
-            ? 'p-8 border-b border-r border-t last:border-t-0 border-black'
+            ? 'p-8 border-b border-r first:border-t lg:border-t last:border-t-0 border-black'
             : 'p-8 border border-l-0 border-black'
         }
       >
@@ -43,8 +43,8 @@ export default function AuthorArticles({ articles }) {
                       D.getMonth()
                     )} ${D.getFullYear()}`}
                   </p>
-                  <p>
-                    <span className='font-semibold'>Duration </span>
+                  <p className='hidden lg:block'>
+                    <span className='font-semibold'>Read </span>
                     <Characters c={post.attributes.content.length} />
                   </p>
                 </div>

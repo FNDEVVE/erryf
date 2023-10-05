@@ -2,7 +2,13 @@
 
 import Image from 'next/image';
 
-export default function ButtonText({ text, image, imageSide, GB = false }) {
+export default function ButtonText({
+  text,
+  image,
+  imageSide,
+  GB = false,
+  showTextOnMobile = true,
+}) {
   return (
     <button
       type='button'
@@ -11,7 +17,9 @@ export default function ButtonText({ text, image, imageSide, GB = false }) {
         GB ? history.back() : console.log('');
       }}
     >
-      {imageSide == 'right' ? text : ''}
+      <p className={`${showTextOnMobile == false ? 'hidden md:block' : ''}`}>
+        {imageSide == 'right' ? text : ''}
+      </p>
       <div className='relative w-6 h-6'>
         <Image
           src={`/i/${image}.svg`}
@@ -21,7 +29,9 @@ export default function ButtonText({ text, image, imageSide, GB = false }) {
           className='object-cover'
         />
       </div>
-      {imageSide == 'left' ? text : ''}
+      <p className={`${showTextOnMobile == false ? 'hidden md:block' : ''}`}>
+        {imageSide == 'left' ? text : ''}
+      </p>
     </button>
   );
 }

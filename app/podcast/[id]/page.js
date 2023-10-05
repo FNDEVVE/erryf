@@ -31,28 +31,28 @@ export default async function PodcastPage({ params }) {
   selectedPodcasts = selectedPodcasts.splice(0, 3);
   return (
     <>
-      <GoBack text={'Podcast'} />
+      <GoBack text={'Podcasts'} />
 
-      <div className='w-2/3 mx-auto grid grid-cols-3 gap-16 mb-48'>
+      <div className='mx-auto mb-24 grid w-full grid-cols-3 gap-8 lg:mb-48 lg:w-5/6 lg:gap-16 xl:w-2/3'>
         <div>
-          <div className='w-full aspect-square'>
-            <div className='relative w-full h-full'>
+          <div className='aspect-square w-full'>
+            <div className='relative h-full w-full'>
               <Image
                 src={podcast.featuredimage.data.attributes.formats.medium.url}
                 alt={podcast.title}
                 fill
                 sizes='25vw'
-                className='object-cover z-10 brightness-75'
+                className='z-10 object-cover brightness-75'
               />
-              <div className='absolute top-0 left-0 w-full h-full p-4 z-20'>
-                <div className='relative w-full h-full text-white'>
+              <div className='absolute left-0 top-0 z-20 h-full w-full p-4'>
+                <div className='relative h-full w-full text-white'>
                   <h5 className='text-5xl font-semibold uppercase'>Erryf</h5>
                   <h6 className='text-2xl font-semibold uppercase'>Podcast</h6>
-                  <h6 className='text-2xl bottom-0 absolute font-semibold uppercase'>
+                  <h6 className='absolute bottom-0 text-2xl font-semibold uppercase'>
                     EP {String(podcast.episode).padStart(2, '0')}
                   </h6>
                   <div className='absolute bottom-0 right-0'>
-                    <div className='relative w-20 h-20 -mr-4 -mb-4'>
+                    <div className='relative -mb-4 -mr-4 h-20 w-20'>
                       <Image
                         src='/i/arrow-right-down-line.svg'
                         alt={podcast.title}
@@ -66,15 +66,15 @@ export default async function PodcastPage({ params }) {
               </div>
             </div>
           </div>
-          <div className='flex justify-between my-8 pb-8 border-b border-black'>
+          <div className='my-8 flex justify-between border-b border-black pb-8'>
             <h6 className='font-semibold'>Listen on</h6>
             <ThreeSocials podcast={true} />
           </div>
-          <div className='flex justify-between mt-4'>
+          <div className='mt-4 flex justify-between'>
             <h6 className='font-semibold'>Date</h6>
             {`${D.getDate()}. ${getMonthName(D.getMonth())} ${D.getFullYear()}`}
           </div>
-          <div className='flex justify-between mt-4'>
+          <div className='mt-4 flex justify-between'>
             <h6 className='font-semibold'>Duration</h6>
             {durationHours == 1
               ? `${durationHours} hour`
@@ -83,7 +83,7 @@ export default async function PodcastPage({ params }) {
               : ''}{' '}
             {durationMinutesLeft > 0 ? `${durationMinutesLeft} minutes` : ''}
           </div>
-          <div className='flex justify-between mt-4'>
+          <div className='mt-4 flex justify-between'>
             <h6 className='font-semibold'>Share</h6>
             <ThreeSocials />
           </div>
@@ -92,17 +92,17 @@ export default async function PodcastPage({ params }) {
           <h6 className='font-semibold uppercase'>
             Episode {String(podcast.episode).padStart(2, '0')}
           </h6>
-          <h1 className='BIGTEXT font-semibold uppercase mt-4 mb-8'>
+          <h1 className='BIGTEXT mb-8 mt-4 font-semibold uppercase'>
             {podcast.title}
           </h1>
           <MDX source={podcast.content} />
         </div>
       </div>
-      <div className='mb-24 pt-12 border-t border-black flex items-center justify-between'>
-        <h1 className='font-semibold BIGTEXT uppercase'>Latest episodes</h1>
+      <div className='mb-24 flex items-center justify-between border-t border-black pt-12'>
+        <h1 className='BIGTEXT font-semibold uppercase'>Latest episodes</h1>
         <Link href={`/podcast`}>
           <ButtonText
-            text='All episodes'
+            text='See all'
             image='arrow-right-line'
             imageSide='right'
           />

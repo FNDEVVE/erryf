@@ -8,6 +8,8 @@
 }
 
 .BIGTEXT {
-    @apply leading-[114.4px];
-    @apply text-6xl;
+    @apply md:leading-[114.4px];
+    @apply md:text-6xl;
+    @apply text-[40px];
+    @apply leading-tight;
 }

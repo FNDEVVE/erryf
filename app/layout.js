@@ -13,10 +13,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body className={generalSans.className}>
-        <nav className='px-10 pt-16'>
+        <nav className='px-6 md:px-10 md:pt-8 lg:pt-16'>
           <Nav />
         </nav>
-        <main className='px-10'>{children}</main>
+        <main className='px-6 md:px-10'>{children}</main>
         <Footer />
       </body>
     </html>

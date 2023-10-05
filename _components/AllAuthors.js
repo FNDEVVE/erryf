@@ -13,9 +13,9 @@ export default function AllAuthors({ authors, posts }) {
         );
         return (
           <Link href={`/authors/${author.username}`} key={i}>
-            <div className='flex justify-between my-12 pb-12 border-b border-black last:border-b-0 last:mb-0 last:pb-0 first:mt-24'>
+            <div className='flex justify-between my-12 pb-12 border-b border-black'>
               <div className='flex items-center'>
-                <div className='aspect-square w-40 mr-12'>
+                <div className='aspect-square w-32 lg:w-40 mr-4 lg:mr-12'>
                   <div className='relative w-full h-full grayscale'>
                     <Image
                       src={author.avatar.formats.small.url}
@@ -26,11 +26,11 @@ export default function AllAuthors({ authors, posts }) {
                     />
                   </div>
                 </div>
-                <h5 className='font-semibold text-[32px]'>
+                <h5 className='font-semibold text-2xl lg:text-[32px]'>
                   {author.firstname} {author.lastname}
                 </h5>
               </div>
-              <div className='flex items-center gap-24'>
+              <div className='flex items-center gap-8 lg:gap-24 text-sm lg:text-base'>
                 <p>
                   <span className='font-semibold'>Job </span>
                   {author.job}
@@ -39,7 +39,7 @@ export default function AllAuthors({ authors, posts }) {
                   <span className='font-semibold'>City </span>
                   {author.city}
                 </p>
-                <p>
+                <p className='hidden lg:block'>
                   <span className='font-semibold'>Articles </span>
                   {authorPosts.length}
                 </p>
