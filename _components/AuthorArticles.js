@@ -18,7 +18,7 @@ export default function AuthorArticles({ articles }) {
         <Link href={`/post/${post.attributes.url}`}>
           <div className='md:flex md:h-36 md:w-auto'>
             <div className='aspect-square h-full w-full md:absolute md:h-36 md:w-36'>
-              <div className='relative h-full w-full bg-red-500'>
+              <div className='relative h-full w-full'>
                 <Image
                   src={
                     post.attributes.featuredimage.data.attributes.formats.small
