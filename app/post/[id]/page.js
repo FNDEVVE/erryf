@@ -27,13 +27,13 @@ export default async function PostPage({ params }) {
   return (
     <>
       <GoBack text={'Magazine'} />
-      <div className='mb-12 grid grid-cols-1 lg:grid-cols-2 lg:gap-24'>
+      <div className='mb-6 grid grid-cols-1 md:mb-12 lg:grid-cols-2 lg:gap-24'>
         <h1 className='BIGTEXT mb-8 font-semibold uppercase'>{post.title}</h1>
         <p className='text-xl font-medium leading-[36px]'>{post.excerpt}</p>
       </div>
-      <div className='mb-8 flex justify-between'>
-        <div className='flex gap-6 text-[14px]'>
-          <p>
+      <div className='mb-4 justify-between md:mb-8 md:flex'>
+        <div className='gap-6 text-[14px] md:flex'>
+          <p className='py-2 md:m-0 md:p-0'>
             <span className='font-semibold'>Text </span>
             <Link href={`/authors/${author.username}`}>
               <span className='underline'>
@@ -41,16 +41,18 @@ export default async function PostPage({ params }) {
               </span>
             </Link>
           </p>
-          <p>
+          <p className='py-2 md:m-0 md:p-0'>
             <span className='font-semibold'>Date </span>
             {`${D.getDate()}. ${getMonthName(D.getMonth())} ${D.getFullYear()}`}
           </p>
-          <p>
+          <p className='py-2 md:m-0 md:p-0'>
             <span className='font-semibold'>Read </span>
             <Characters c={post.content.length} />
           </p>
         </div>
-        <RoundedButton text={post.tag} />
+        <div className='py-2 md:m-0 md:p-0'>
+          <RoundedButton text={post.tag} />
+        </div>
       </div>
       <div className='relative mb-12 aspect-[1.9] w-full lg:mb-24 lg:aspect-[1.5]'>
         <Image
@@ -61,22 +63,22 @@ export default async function PostPage({ params }) {
           className='object-cover'
         />
       </div>
-      <div className='mx-auto mb-24 grid w-full grid-cols-3 gap-8 lg:mb-48 lg:w-5/6 lg:gap-16 xl:w-2/3'>
-        <div>
+      <div className='mx-auto mb-12 grid w-full grid-cols-1 md:mb-24 md:grid-cols-3 md:gap-8 lg:mb-48 lg:w-5/6 lg:gap-16 xl:w-2/3'>
+        <div className='order-2 mt-4 md:order-1 md:mt-0'>
           <Link href={`/authors/${author.username}`}>
-            <div className='mb-4 flex items-center border-b border-black pb-8'>
-              <div className='aspect-square w-32'>
+            <div className='mb-4 flex items-center border-b border-black pb-4 md:pb-8'>
+              <div className='aspect-square w-20 md:w-32'>
                 <div className='relative h-full w-full'>
                   <Image
                     src={author.avatar.formats.small.url}
                     alt={`${author.firstname} ${author.lastname}`}
                     fill
-                    sizes='25vw'
+                    sizes='(max-width: 768px) 100vw, 25vw'
                     className='rounded-full object-cover grayscale'
                   />
                 </div>
               </div>
-              <h3 className='ml-4 text-[32px] font-semibold leading-[38.4px]'>
+              <h3 className='ml-4 text-2xl font-semibold leading-[38.4px] md:text-[32px]'>
                 {author.firstname} {author.lastname}
               </h3>
             </div>
@@ -98,17 +100,18 @@ export default async function PostPage({ params }) {
             <ThreeSocials />
           </div>
         </div>
-        <div className='col-span-2'>
+        <div className='order-1 col-span-2 md:order-2'>
           <MDX source={post.content} />
         </div>
       </div>
-      <div className='mb-24 flex items-center justify-between border-t border-black pt-12'>
+      <div className='mb-12 flex items-center justify-between border-t border-black pt-12 md:mb-24'>
         <h1 className='BIGTEXT font-semibold uppercase'>Latest posts</h1>
         <Link href={`/magazine`}>
           <ButtonText
             text='See all'
             image='arrow-right-line'
             imageSide='right'
+            showTextOnMobile={false}
           />
         </Link>
       </div>

@@ -33,7 +33,7 @@ export default async function PodcastPage({ params }) {
     <>
       <GoBack text={'Podcasts'} />
 
-      <div className='mx-auto mb-24 grid w-full grid-cols-3 gap-8 lg:mb-48 lg:w-5/6 lg:gap-16 xl:w-2/3'>
+      <div className='mx-auto mb-24 grid w-full grid-cols-1 md:grid-cols-3 md:gap-8 lg:mb-48 lg:w-5/6 lg:gap-16 xl:w-2/3'>
         <div>
           <div className='aspect-square w-full'>
             <div className='relative h-full w-full'>
@@ -41,7 +41,7 @@ export default async function PodcastPage({ params }) {
                 src={podcast.featuredimage.data.attributes.formats.medium.url}
                 alt={podcast.title}
                 fill
-                sizes='25vw'
+                sizes='(max-width: 768px) 100vw, 25vw'
                 className='z-10 object-cover brightness-75'
               />
               <div className='absolute left-0 top-0 z-20 h-full w-full p-4'>
@@ -66,15 +66,15 @@ export default async function PodcastPage({ params }) {
               </div>
             </div>
           </div>
-          <div className='my-8 flex justify-between border-b border-black pb-8'>
-            <h6 className='font-semibold'>Listen on</h6>
+          <div className='my-4 flex justify-between border-b border-black pb-4 md:my-8 md:pb-8'>
+            <h6 className='font-semibold uppercase'>Listen on</h6>
             <ThreeSocials podcast={true} />
           </div>
-          <div className='mt-4 flex justify-between'>
+          <div className='mt-4 flex justify-between text-sm md:text-base'>
             <h6 className='font-semibold'>Date</h6>
             {`${D.getDate()}. ${getMonthName(D.getMonth())} ${D.getFullYear()}`}
           </div>
-          <div className='mt-4 flex justify-between'>
+          <div className='mt-4 flex justify-between text-sm md:text-base'>
             <h6 className='font-semibold'>Duration</h6>
             {durationHours == 1
               ? `${durationHours} hour`
@@ -83,12 +83,12 @@ export default async function PodcastPage({ params }) {
               : ''}{' '}
             {durationMinutesLeft > 0 ? `${durationMinutesLeft} minutes` : ''}
           </div>
-          <div className='mt-4 flex justify-between'>
+          <div className='mt-4 flex justify-between text-sm md:text-base'>
             <h6 className='font-semibold'>Share</h6>
             <ThreeSocials />
           </div>
         </div>
-        <div className='col-span-2'>
+        <div className='mt-8 md:col-span-2 md:mt-0'>
           <h6 className='font-semibold uppercase'>
             Episode {String(podcast.episode).padStart(2, '0')}
           </h6>
@@ -98,13 +98,14 @@ export default async function PodcastPage({ params }) {
           <MDX source={podcast.content} />
         </div>
       </div>
-      <div className='mb-24 flex items-center justify-between border-t border-black pt-12'>
+      <div className='mb-8 flex items-center justify-between border-t border-black pt-12 md:mb-24'>
         <h1 className='BIGTEXT font-semibold uppercase'>Latest episodes</h1>
         <Link href={`/podcast`}>
           <ButtonText
             text='See all'
             image='arrow-right-line'
             imageSide='right'
+            showTextOnMobile={false}
           />
         </Link>
       </div>

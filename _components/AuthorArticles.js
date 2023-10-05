@@ -11,14 +11,14 @@ export default function AuthorArticles({ articles }) {
         key={i}
         className={
           articles.data.length > 1
-            ? 'p-8 border-b border-r first:border-t lg:border-t last:border-t-0 border-black'
-            : 'p-8 border border-l-0 border-black'
+            ? 'border-b border-r border-black p-6 first:border-t last:border-t-0 md:p-8 lg:border-t'
+            : 'border border-l-0 border-black p-6 md:p-8'
         }
       >
         <Link href={`/post/${post.attributes.url}`}>
-          <div className='flex h-36'>
-            <div className='absolute w-36 h-36'>
-              <div className='relative w-full h-full'>
+          <div className='md:flex md:h-36 md:w-auto'>
+            <div className='aspect-square h-full w-full md:absolute md:h-36 md:w-36'>
+              <div className='relative h-full w-full bg-red-500'>
                 <Image
                   src={
                     post.attributes.featuredimage.data.attributes.formats.small
@@ -26,24 +26,24 @@ export default function AuthorArticles({ articles }) {
                   }
                   alt={post.attributes.title}
                   fill
-                  sizes='25vw'
+                  sizes='100vw'
                   className='object-cover'
                 />
               </div>
             </div>
-            <div className='ml-48 flex flex-col justify-center'>
-              <h3 className='text-[32px] font-semibold mb-4'>
+            <div className='mt-6 flex flex-col justify-center md:ml-48 md:mt-0'>
+              <h3 className='mb-4 text-2xl font-semibold md:text-[32px]'>
                 {post.attributes.title}
               </h3>
               <div className='flex justify-between'>
-                <div className='flex gap-6 text-[14px]'>
-                  <p>
+                <div className='text-[14px] md:flex md:gap-6'>
+                  <p className='py-2 md:m-0 md:p-0'>
                     <span className='font-semibold'>Date </span>
                     {`${D.getDate()}. ${getMonthName(
                       D.getMonth()
                     )} ${D.getFullYear()}`}
                   </p>
-                  <p className='hidden lg:block'>
+                  <p className='py-2 md:m-0 md:p-0'>
                     <span className='font-semibold'>Read </span>
                     <Characters c={post.attributes.content.length} />
                   </p>

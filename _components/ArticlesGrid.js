@@ -13,12 +13,15 @@ export default function ArticlesGrid({
   target =
     tag != 'all' ? target.filter((t) => t.attributes.tag == tag) : target;
   return (
-    <div className='grid grid-cols-2 lg:grid-cols-3 border border-r-0 border-b-0 border-black'>
+    <div className='grid border border-b-0 border-r-0 border-black md:grid-cols-2 lg:grid-cols-3'>
       {target.map((post, i) => {
         let D = new Date(post.attributes.updatedAt);
         return (
-          <div key={i} className='p-8 lg:p-12 border-r border-b border-black'>
-            <div className='flex justify-between items-center'>
+          <div
+            key={i}
+            className='border-b border-r border-black p-6 md:p-8 lg:p-12'
+          >
+            <div className='flex items-center justify-between'>
               <p className='text-sm lg:text-base'>
                 {`${D.getDate()}. ${getMonthName(
                   D.getMonth()
@@ -27,8 +30,8 @@ export default function ArticlesGrid({
               <RoundedButton text={post.attributes.tag} />
             </div>
             <Link href={`/post/${post.attributes.url}`}>
-              <div className='aspect-square my-8'>
-                <div className='relative w-full h-full'>
+              <div className='my-8 aspect-square'>
+                <div className='relative h-full w-full'>
                   <Image
                     src={
                       post.attributes.featuredimage.data.attributes.formats
@@ -36,15 +39,17 @@ export default function ArticlesGrid({
                     }
                     alt={post.attributes.title}
                     fill
-                    sizes='25vw'
+                    sizes='(max-width: 768px) 100vw, 25vw'
                     className='object-cover'
                   />
                 </div>
               </div>
-              <h3 className='text-[32px] font-semibold mb-3'>
+              <h3 className='mb-3 text-2xl font-semibold md:text-[32px]'>
                 {post.attributes.title}
               </h3>
-              <p className='leading-[28.8px] mb-8'>{post.attributes.excerpt}</p>
+              <p className='mb-8 text-sm leading-[28.8px] md:text-base'>
+                {post.attributes.excerpt}
+              </p>
             </Link>
             <div className='flex gap-6 text-[14px]'>
               <p>

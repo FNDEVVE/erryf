@@ -7,8 +7,8 @@ export default function FeaturedPodcasts({ podcasts }) {
   podcasts.data.splice(3);
   return (
     <>
-      <div className='my-12 lg:my-24 pt-12 border-t border-black flex items-center justify-between'>
-        <h1 className='font-semibold BIGTEXT uppercase'>Podcasts</h1>
+      <div className='my-12 flex items-center justify-between border-t border-black pt-12 lg:my-24'>
+        <h1 className='BIGTEXT font-semibold uppercase'>Podcasts</h1>
         <Link href={`/podcast`}>
           <ButtonText
             text='All episodes'
@@ -26,13 +26,13 @@ export default function FeaturedPodcasts({ podcasts }) {
             podcast.attributes.duration - durationHours * 60;
           return (
             <Link
-              className='border border-b-0 last:border-b md:border-b md:first:border-b md:border-r md:border-t md:first:border-l md:border-l-0 md:last:border-l md:last:border-t-0 lg:border lg:border-red lg:border-l-0 lg:first:border-l lg:last:border-l-0 border-black lg:last:border-t'
+              className='border border-b-0 border-black last:border-b md:border-y md:border-l-0 md:border-r md:first:border-b md:first:border-l md:last:border-l md:last:border-t-0 lg:border lg:border-l-0 lg:first:border-l lg:last:border-l-0 lg:last:border-t'
               href={`/podcast/${podcast.attributes.url}`}
               key={i}
             >
               <div className='p-6 md:p-8 lg:p-12'>
-                <div className='w-full aspect-square'>
-                  <div className='relative w-full h-full'>
+                <div className='aspect-square w-full'>
+                  <div className='relative h-full w-full'>
                     <Image
                       src={
                         podcast.attributes.featuredimage.data.attributes.formats
@@ -40,23 +40,23 @@ export default function FeaturedPodcasts({ podcasts }) {
                       }
                       alt={podcast.attributes.title}
                       fill
-                      sizes='25vw'
-                      className='object-cover z-10 brightness-75'
+                      sizes='(max-width: 768px) 100vw, 25vw'
+                      className='z-10 object-cover brightness-75'
                     />
-                    <div className='absolute top-0 left-0 w-full h-full pt-6 lg:pt-8 pb-4 lg:pb-6 pl-7 lg:pl-9 pr-3 lg:pr-5 z-20'>
-                      <div className='relative w-full h-full text-white'>
+                    <div className='absolute left-0 top-0 z-20 h-full w-full pb-4 pl-7 pr-3 pt-6 lg:pb-6 lg:pl-9 lg:pr-5 lg:pt-8'>
+                      <div className='relative h-full w-full text-white'>
                         <h5 className='text-5xl font-semibold uppercase'>
                           Erryf
                         </h5>
                         <h6 className='text-2xl font-semibold uppercase'>
                           Podcast
                         </h6>
-                        <h6 className='text-2xl bottom-0 absolute font-semibold uppercase'>
+                        <h6 className='absolute bottom-0 text-2xl font-semibold uppercase'>
                           EP{' '}
                           {String(podcast.attributes.episode).padStart(2, '0')}
                         </h6>
                         <div className='absolute bottom-0 right-0'>
-                          <div className='relative w-20 h-20 -mr-4 -mb-4'>
+                          <div className='relative -mb-4 -mr-4 h-20 w-20'>
                             <Image
                               src='/i/arrow-right-down-line.svg'
                               alt={podcast.attributes.title}
@@ -70,13 +70,13 @@ export default function FeaturedPodcasts({ podcasts }) {
                     </div>
                   </div>
                 </div>
-                <h3 className='text-[32px] font-semibold leading-[38.4px] mt-6 mb-4'>
+                <h3 className='mb-4 mt-6 text-[32px] font-semibold leading-[38.4px]'>
                   {podcast.attributes.title}
                 </h3>
                 {/* <p className='text-sm line-clamp-4 mb-4'>
                   {podcast.attributes.content}
                 </p> */}
-                <div className='md:flex md:gap-6 text-[14px]'>
+                <div className='text-[14px] md:flex md:gap-6'>
                   <p className='py-2 md:m-0 md:p-0'>
                     <span className='font-semibold'>Date </span>
                     {`${D.getDate()}. ${getMonthName(

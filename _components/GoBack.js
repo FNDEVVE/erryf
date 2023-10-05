@@ -2,7 +2,7 @@ import ButtonText from './ButtonText';
 
 export default function GoBack({ text }) {
   return (
-    <div className='flex justify-between mb-12'>
+    <div className='mb-12 flex justify-between'>
       <ButtonText
         text='Go back'
         image='arrow-left-line'

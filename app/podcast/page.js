@@ -4,7 +4,7 @@ import { getAuthors, getPodcasts, getPosts } from '@/_components/util';
 export default async function Podcast() {
   return (
     <>
-      <div className='relative w-full aspect-[6.443]'>
+      <div className='relative aspect-[6.443] w-full'>
         <Image
           src='/i/podcast.svg'
           alt='Podcast'

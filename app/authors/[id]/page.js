@@ -8,24 +8,25 @@ import ThreeSocials from '@/_components/ThreeSocials';
 export default async function AuthorPage({ params }) {
   let author = await getAuthor({ username: params.id });
   author = author[0];
+  console.log(author);
   return (
     <>
       <GoBack text={'Authors'} />
       <div className='mb-40 lg:mx-20 xl:mx-60'>
-        <div className='grid grid-cols-5 gap-8 lg:grid-cols-3 lg:gap-24'>
-          <div className='col-span-2 lg:col-span-1'>
-            <div className='aspect-square w-full'>
+        <div className='md:grid md:grid-cols-5 md:gap-8 lg:grid-cols-3 lg:gap-24'>
+          <div className='md:col-span-2 lg:col-span-1'>
+            <div className='mb-12 aspect-square w-full md:mb-0'>
               <div className='relative h-full w-full'>
                 <Image
                   src={author.avatar.formats.medium.url}
                   alt={`${author.firstname} ${author.lastname}`}
                   fill
-                  sizes='25vw'
+                  sizes='(max-width: 768px) 100vw, 25vw'
                   className='rounded-full object-cover grayscale'
                 />
               </div>
             </div>
-            <div className='mb-8 mt-12 flex justify-between border-y border-black py-4'>
+            <div className='mb-8 mt-4 flex justify-between border-y border-black py-4 md:mt-12'>
               <h5 className='text-xl font-semibold uppercase'>Follow</h5>
               <ThreeSocials />
             </div>
@@ -50,7 +51,7 @@ export default async function AuthorPage({ params }) {
         </div>
       </div>
       <div className='border-t border-black pt-12'>
-        <h2 className='BIGTEXT mb-24 font-semibold'>
+        <h2 className='BIGTEXT mb-12 font-semibold md:mb-24'>
           Articles by {author.firstname} {author.lastname}
         </h2>
         <div className='grid grid-cols-1 border-l border-black lg:grid-cols-2'>

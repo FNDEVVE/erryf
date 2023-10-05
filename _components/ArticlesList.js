@@ -15,8 +15,8 @@ export default function ArticlesList({ articles }) {
       <>
         <div key={i} className='grid md:flex md:h-60'>
           <Link href={`/post/${post.attributes.url}`}>
-            <div className='md:absolute w-full aspect-square md:w-60 md:h-60'>
-              <div className='relative w-full h-full'>
+            <div className='aspect-square w-full md:absolute md:h-60 md:w-60'>
+              <div className='relative h-full w-full'>
                 <Image
                   src={
                     post.attributes.featuredimage.data.attributes.formats.small
@@ -24,23 +24,23 @@ export default function ArticlesList({ articles }) {
                   }
                   alt={post.attributes.title}
                   fill
-                  sizes='25vw'
+                  sizes='(max-width: 768px) 100vw, 25vw'
                   className='object-cover'
                 />
               </div>
             </div>
           </Link>
-          <div className='md:ml-[272px] lg:ml-72 flex flex-col justify-between'>
+          <div className='flex flex-col justify-between md:ml-[272px] lg:ml-72'>
             <Link href={`/post/${post.attributes.url}`}>
-              <h3 className='text-2xl mt-3 md:mt-0 md:text-[32px] font-semibold mb-3'>
+              <h3 className='my-3 text-2xl font-semibold md:mt-0 md:text-[32px]'>
                 {post.attributes.title}
               </h3>
-              <p className='leading-[28.8px] line-clamp-4 lg:mb-0 mb-4'>
+              <p className='mb-4 line-clamp-4 leading-[28.8px] lg:mb-0'>
                 {post.attributes.excerpt}
               </p>
             </Link>
-            <div className='md:flex justify-between'>
-              <div className='block md:flex md:gap-6 text-[14px]'>
+            <div className='justify-between md:flex'>
+              <div className='block text-[14px] md:flex md:gap-6'>
                 <p className='py-2 md:m-0 md:p-0'>
                   <span className='font-semibold'>Text </span>
                   <Link
@@ -76,10 +76,10 @@ export default function ArticlesList({ articles }) {
           </div>
         </div>
         {i != articles.data.length - 1 ? (
-          <div className='border-b border-black my-12'></div>
+          <div className='my-12 border-b border-black'></div>
         ) : (
           <>
-            <div className='border-b border-transparent my-12'></div>
+            <div className='mt-8 border-b border-transparent md:my-12'></div>
             <Link href={'/magazine'}>
               <ButtonText
                 text='See all'

@@ -2,15 +2,15 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 
 const components = {
   strong: (props) => (
-    <strong className='text-xl font-medium leading-[36px]'>
+    <strong className='text-lg font-medium leading-[36px] md:text-xl'>
       {props.children}
     </strong>
   ),
-  p: (props) => <p className='leading-relaxed mb-4'>{props.children}</p>,
+  p: (props) => <p className='mb-4 leading-relaxed'>{props.children}</p>,
   blockquote: (props) => (
-    <blockquote className='pt-4 my-4 border-y border-black text-3xl font-semibold'>
+    <blockquote className='my-4 border-y border-black pt-4 text-2xl font-semibold md:text-3xl'>
       <div className='flex'>
-        <h4 className='text-3xl font-semibold mr-6'>“</h4>
+        <h4 className='mr-6 text-2xl font-semibold md:text-3xl'>“</h4>
         {props.children}
       </div>
     </blockquote>

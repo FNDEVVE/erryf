@@ -8,18 +8,18 @@ export default function FeaturedPost({ post }) {
   let D = new Date(post.data[0].attributes.updatedAt);
   return (
     <div className='grid grid-cols-1 md:block'>
-      <div className='grid lg:grid-cols-2 gap-4 lg:gap-12 mb-6 md:mb-12 order-2 md:order-none'>
+      <div className='order-2 mb-6 grid gap-4 md:order-none md:mb-12 lg:grid-cols-2 lg:gap-12'>
         <Link href={`/post/${post.data[0].attributes.url}`}>
-          <h1 className='font-semibold BIGTEXT uppercase'>
+          <h1 className='BIGTEXT font-semibold uppercase'>
             {post.data[0].attributes.title}
           </h1>
         </Link>
         <div>
-          <p className='font-normal text-lg md:leading-[32.4px] mb-8 lg:mb-16'>
+          <p className='mb-8 text-lg font-normal md:leading-[32.4px] lg:mb-16'>
             {post.data[0].attributes.excerpt}
           </p>
-          <div className='md:flex justify-between items-center'>
-            <div className='block md:flex md:gap-6 text-[14px]'>
+          <div className='items-center justify-between md:flex'>
+            <div className='block text-[14px] md:flex md:gap-6'>
               <p className='py-2 md:m-0 md:p-0'>
                 <span className='font-semibold'>Text </span>
                 <Link
@@ -58,7 +58,7 @@ export default function FeaturedPost({ post }) {
         href={`/post/${post.data[0].attributes.url}`}
         className='order-1 md:order-none'
       >
-        <div className='relative w-full aspect-square md:aspect-[1.9] lg:aspect-[1.5] mb-4 md:mb-12'>
+        <div className='relative mb-4 aspect-square w-full md:mb-12 md:aspect-[1.9] lg:aspect-[1.5]'>
           <Image
             src={post.data[0].attributes.featuredimage.data.attributes.url}
             alt={post.data[0].attributes.title}

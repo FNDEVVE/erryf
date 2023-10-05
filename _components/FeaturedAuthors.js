@@ -27,7 +27,7 @@ export default function FeaturedAuthors({ authors }) {
                       src={author.avatar.formats.small.url}
                       alt={`${author.firstname} ${author.lastname}`}
                       fill
-                      sizes='10vw'
+                      sizes='(max-width: 768px) 33vw, 10vw'
                       className='rounded-full object-cover grayscale'
                     />
                   </div>

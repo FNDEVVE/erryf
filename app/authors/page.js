@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default async function Authors() {
   return (
     <>
-      <div className='relative w-full aspect-[6.576] mb-16'>
+      <div className='relative mb-16 aspect-[6.576] w-full'>
         <Image
           src='/i/authors.svg'
           alt='Authors'
